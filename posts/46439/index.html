@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="Lubo">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/posts/46439/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Beego 框架">
+    <meta property="og:description" content="Hexo Theme Redefine">
+    <meta property="og:url" content="http://example.composts/46439/">
+    <meta property="og:image" content="/images/redefine-logo.svg">
+    <meta property="og:site_name" content="Lubo&#39;s Blog">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Beego 框架">
+    <meta name="twitter:description" content="Hexo Theme Redefine">
+    <meta name="twitter:image" content="/images/redefine-logo.svg">
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-logo.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-logo.svg">
+    <meta name="theme-color" content="#005080">
+    <link rel="shortcut icon" href="/images/redefine-logo.svg">
+    
+    <title>
+        
+            Beego 框架 -
+        
+        Lubo&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/assets/fonts.css">
+    
+    
+    
+    
+        <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+    
+    <script id="hexo-configurations">
+    let REDEFINE = window.REDEFINE || {};
+    REDEFINE.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#005080","avatar":"/images/1.svg","favicon":"/images/redefine-logo.svg","article_img_align":"center","right_side_width":"210px","content_max_width":"1000px","nav_color":{"left":"#000000","right":"#DCDCDC","transparency":40},"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_image":{"light":"https://cdn.jsdelivr.net/gh/coderlubo/blogimages@main/images/2023/03/08/2ad62c38f0b41506ca9ed2f57ed549c4-bg2-134b10.jpg","dark":"https://cdn.jsdelivr.net/gh/coderlubo/blogimages@main/images/2023/03/08/2ad62c38f0b41506ca9ed2f57ed549c4-bg2-134b10.jpg"},"title_color":{"light":"#000","dark":"#d1d1b6"},"description":"This is Lubo's Blog","custom_font":{"enable":false,"font_family":null,"font_url":null}},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_block":{"copy":true,"style":"simple","custom_font":{"enable":false,"font_family":null,"font_url":null}},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"1.1.3","friend_links":{"columns":2},"home_article":{"date_format":"auto","category":{"enable":true,"limit":3},"tag":{"enable":true,"limit":3}}};
+    REDEFINE.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+    
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/fontawesome/regular.min.css">
+    
+    
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="menu-wrapper">
+    
+    <div class="menu-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Lubo&#39;s Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        ARCHIVES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="menu-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                ARCHIVES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            
+            
+                <div class="article-title">
+                    <h1 class="article-title-regular">Beego 框架</h1>
+                </div>
+            
+                
+            
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/1.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Lubo</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="pc">2021-07-14</span>
+        <span class="mobile">2021-07-14 00</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="pc">2023-03-11 09:25:07</span>
+            <span class="mobile">2023-03-11 09:25</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Go/">Go</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Beego/">Beego</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h1>Beego 框架</h1>
+<h4>2021年7月14日-2021年8月7日</h4>
+<hr>
+<h2 id="一、基础概念">一、基础概念</h2>
+<h3 id="概述">概述</h3>
+<ul>
+<li>
+<p>框架</p>
+<ul>
+<li>提高开发效率</li>
+<li><code>Beego</code> 框架的作用是快速开发 <code>Web</code> 应用</li>
+<li><code>Beego</code> 是 <code>MVC</code> 架构</li>
+</ul>
+</li>
+<li>
+<p>软件框架</p>
+<ul>
+<li>一个软件框架是由其中各个软件模块组成的，每一个模块都有特定的功能，模块与模块之间通过相互配合来完成软件的开发</li>
+<li>作用： 避免重复造轮子</li>
+</ul>
+</li>
+<li>
+<p><code>Beego</code> 是一个快速开发 <code>Go</code> 应用的 <code>Http</code> 框架，是一个 <code>MVC</code> 框架</p>
+</li>
+<li>
+<p>官网 <a url="www.Beego.me">www.Beego.me</a></p>
+</li>
+<li>
+<p><code>MVC (Model View Controller)</code></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/coderlubo/blogimages@main/images/2023/03/08/d5982191d7141f5409d599f4d876333c-mvc%E7%A4%BA%E6%84%8F-b1067a.png"
+                      alt=""
+                ></p>
+<ul>
+<li><code>Model:</code>  模型。数据库操作、增删改查</li>
+<li><code>View:</code> 视图。接收 <code>C</code> 传输的数据，组织 <code>html</code> 页面</li>
+<li><code>Controller:</code> 控制器。接收数据，数据处理，传输数据给 <code>M</code> 和 <code>V</code> 并接收应答，返回应答给浏览器</li>
+<li><code>MVC</code> 理念：<span style="color: red">分工</span></li>
+</ul>
+</li>
+</ul>
+<h3 id="环境配置">环境配置</h3>
+<ul>
+<li>
+<p>安装go环境</p>
+<blockquote>
+<h3 id="Windows下的环境变量设置">Windows下的环境变量设置</h3>
+<p>设置GOPATH目录</p>
+<ul>
+<li>变量名:GOPATH变量值:	<code>C:\Users\lubo\Desktop\go_workspace</code></li>
+</ul>
+<p>设置GOROOT目录</p>
+<ul>
+<li>变量名:GOROOT变量值:   go的安装路径:	<code> C:\Program Files\Go</code></li>
+</ul>
+<p>设置Path项</p>
+<ul>
+<li>变量名: Path，增加值: <code>%GOROOT%\bin;%GOPATH%\bin;</code>  存放可执行文件</li>
+</ul>
+<p>检查配置环境</p>
+<ul>
+<li><code>go env</code></li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>安装git</p>
+</li>
+<li>
+<p>安装Beego和Bee开发工具</p>
+  <div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置代理</span></span><br><span class="line">go <span class="built_in">env</span> -w GOPROXY=https://goproxy.io,direct</span><br><span class="line">go <span class="built_in">env</span> -w GO111MODULE=on</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意　GOPATH 路径的设置</span></span><br><span class="line">go get -u github.com/astaxie/beego</span><br><span class="line">go get -u github.com/beego/bee</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<h3 id="Linux下的环境变量配置">Linux下的环境变量配置</h3>
+<p>安装完之后，bee可执行文件默认存放在 $GOPATH/bin里面，所以需要把$​GOPATH/bin添加到您的环境变量中，才可以进行下一步。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ echo &quot;export PATH=&quot;\$GOPATH/bin :\$PATH&quot;&quot; &gt;&gt; ~/ .bashrc </span><br><span class="line"></span><br><span class="line">$ source .bashrc</span><br></pre></td></tr></table></figure></div>
+</blockquote>
+</li>
+<li>
+<p>vscode 代码提示</p>
+  <div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># workspace setting.json</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;window.zoomLevel&quot;</span>: 1,</span><br><span class="line">    <span class="string">&quot;go.autocompleteUnimportedPackages&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;go.gocodePackageLookupMode&quot;</span>: <span class="string">&quot;go&quot;</span>,</span><br><span class="line">    <span class="string">&quot;go.gotoSymbol.includeImports&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;go.useCodeSnippetsOnFunctionSuggest&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;go.inferGopath&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">&quot;go.gopath&quot;</span>:<span class="string">&quot;C:\\Users\\lubo\\Desktop\\go_workspace&quot;</span>,</span><br><span class="line">    <span class="string">&quot;go.useCodeSnippetsOnFunctionSuggestWithoutType&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+<h3 id="基本操作">基本操作</h3>
+<h4 id="创建项目">创建项目</h4>
+<div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bee new &lt;appname&gt;</span><br></pre></td></tr></table></figure></div>
+<h4 id="初始化-mod">初始化 mod</h4>
+<div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go mod init</span><br></pre></td></tr></table></figure></div>
+<p>==使用旧项目 <code>go mod vendor</code>， 将包下载到项目文件夹下==</p>
+<h4 id="运行项目">运行项目</h4>
+<div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式一： 会自动检测代码是否修改并重启</span></span><br><span class="line">bee run</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二：</span></span><br><span class="line">go run main.go</span><br></pre></td></tr></table></figure></div>
+<h4 id="模板文件路径">模板文件路径</h4>
+<blockquote>
+<h4 id="默认路径：项目根目录下的views文件夹">默认路径：项目根目录下的views文件夹</h4>
+<p>修改路径：</p>
+<ul>
+<li>
+<p>beego.Run()之前设置：beego.SetViewsPath(“testview”)</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/coderlubo/blogimages@main/images/2023/03/08/43c450e475b763743ee021869762c0b2-%E4%BF%AE%E6%94%B9%E6%A8%A1%E6%9D%BF%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95-6f2359.png"
+                      alt=""
+                ></p>
+</li>
+<li>
+<p>配置文件（conf/app.conf）中设置：viewspath = “front”</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/coderlubo/blogimages@main/images/2023/03/08/7c76e914274972a46956ebcadb76cb9f-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%9B%B4%E6%94%B9%E6%A8%A1%E6%9D%BF%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95-a30305.png"
+                      alt=""
+                ></p>
+</li>
+</ul>
+</blockquote>
+<h4 id="静态文件路径">静态文件路径</h4>
+<blockquote>
+<h4 id="默认路径：项目根目录下的static文件夹">默认路径：项目根目录下的static文件夹</h4>
+<p>修改路径：</p>
+<p>beego.Run()之前设置：beego.SetStaticPath(“/static”,“front”)</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/coderlubo/blogimages@main/images/2023/03/08/c7054b77ba057daaebd869fbe32cf174-SetStaticPath-3a3e94.png"
+                      alt=""
+                ></p>
+<p>注意:	第一个参数是前端使用的开始路径，第二个参数是对应的文件夹</p>
+</blockquote>
+<h2 id="二、前后端数据交互">二、前后端数据交互</h2>
+<h3 id="数据渲染">数据渲染</h3>
+<h4 id="字符串渲染">字符串渲染</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 渲染字符串到浏览器</span></span><br><span class="line"><span class="comment">// 不会渲染到模板文件</span></span><br><span class="line">c.Ctx.WriteString(<span class="string">&quot;hello world&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<h4 id="模板渲染">模板渲染</h4>
+<h5 id="结构体数据渲染">结构体数据渲染</h5>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id   <span class="type">int</span></span><br><span class="line">	Name <span class="type">string</span></span><br><span class="line">	Age  <span class="type">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 赋值：</span></span><br><span class="line">user := User&#123;<span class="number">1</span>, <span class="string">&quot;jinxiao&quot;</span>, <span class="number">19</span>&#125;</span><br><span class="line">c.Data[<span class="string">&quot;user&quot;</span>] = user</span><br><span class="line"></span><br><span class="line"><span class="comment">// 前端使用：</span></span><br><span class="line">学生姓名：&#123;&#123;.student.Name&#125;&#125;</span><br><span class="line">学生年龄：&#123;&#123;.student.Age&#125;&#125;</span><br><span class="line">学生Id： &#123;&#123;.student.Id&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<p>==注意：结构体中的字段要在其他地方使用，首字母要大写==</p>
+<h5 id="数组数据渲染">数组数据渲染</h5>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">arr := [<span class="number">5</span>]<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line">c.Data[<span class="string">&quot;arr&quot;</span>] = arr</span><br><span class="line"></span><br><span class="line"><span class="comment">// 前端：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一种：</span></span><br><span class="line">&#123;&#123;<span class="keyword">range</span> $i,$v := .arr&#125;&#125;</span><br><span class="line">    &#123;&#123;$i&#125;&#125;</span><br><span class="line">    &#123;&#123;$v&#125;&#125;</span><br><span class="line">&#123;&#123;end&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种：</span></span><br><span class="line">&#123;&#123;<span class="keyword">range</span> .arr&#125;&#125;</span><br><span class="line">    &#123;&#123;.&#125;&#125;</span><br><span class="line">&#123;&#123;end&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h5 id="结构体数组渲染">结构体数组渲染</h5>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 结构体：</span></span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id   <span class="type">int</span></span><br><span class="line">	Name <span class="type">string</span></span><br><span class="line">	Age  <span class="type">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 赋值：</span></span><br><span class="line">users := [<span class="number">3</span>]User&#123;</span><br><span class="line">    &#123;<span class="number">1</span>, <span class="string">&quot;lubo&quot;</span>, <span class="number">19</span>&#125;,</span><br><span class="line">    &#123;<span class="number">2</span>, <span class="string">&quot;jinxiao&quot;</span>, <span class="number">19</span>&#125;,</span><br><span class="line">    &#123;<span class="number">3</span>, <span class="string">&quot;hahaha&quot;</span>, <span class="number">0</span>&#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">c.Data[<span class="string">&quot;users&quot;</span>] = users</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 前端获取：</span></span><br><span class="line"><span class="comment">// 法一：先循环数组，在获取结构体变量，注意是大写</span></span><br><span class="line">&#123;&#123;<span class="keyword">range</span> $v := .arr_struct&#125;&#125;</span><br><span class="line">    &#123;&#123;$v.Name&#125;&#125;</span><br><span class="line">    &#123;&#123;$v.Age&#125;&#125;</span><br><span class="line">	&#123;&#123;$v.Id&#125;&#125;</span><br><span class="line">&#123;&#123;end&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 法二：</span></span><br><span class="line">&#123;&#123;<span class="keyword">range</span> .arr&#125;&#125;</span><br><span class="line">    &#123;&#123;.&#125;&#125;</span><br><span class="line">&#123;&#123;end&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h5 id="map数据渲染">map数据渲染</h5>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">map_data := <span class="keyword">map</span>[<span class="type">string</span>]<span class="keyword">interface</span>&#123;&#125;&#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;lubo&quot;</span>,</span><br><span class="line">    <span class="string">&quot;age&quot;</span>:  <span class="number">18</span>,</span><br><span class="line">    <span class="string">&quot;addr&quot;</span>: <span class="string">&quot;河南洛阳&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">c.Data[<span class="string">&quot;map_data&quot;</span>] = map_data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 前端：</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 取出key对应的值</span></span><br><span class="line">&#123;&#123;.map_data.name&#125;&#125;</span><br><span class="line">&#123;&#123;.map_data.age&#125;&#125;</span><br><span class="line">&#123;&#123;.map_data.addr&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取出所有的key和value：</span></span><br><span class="line">&#123;&#123;<span class="keyword">range</span> $k,$v := .map_data&#125;&#125;</span><br><span class="line">    &#123;&#123;$k&#125;&#125;</span><br><span class="line">    &#123;&#123;$v&#125;&#125;</span><br><span class="line">&#123;&#123;end&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h5 id="map-struct数据渲染">map+struct数据渲染</h5>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 结构体：</span></span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id   <span class="type">int</span></span><br><span class="line">	Name <span class="type">string</span></span><br><span class="line">	Age  <span class="type">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 赋值：</span></span><br><span class="line">map_struct := <span class="keyword">map</span>[<span class="type">string</span>]User&#123;</span><br><span class="line">    <span class="string">&quot;lubo&quot;</span>:    &#123;<span class="number">1</span>, <span class="string">&quot;lubo&quot;</span>, <span class="number">19</span>&#125;,</span><br><span class="line">    <span class="string">&quot;jinxiao&quot;</span>: &#123;<span class="number">1</span>, <span class="string">&quot;jinxiao&quot;</span>, <span class="number">19</span>&#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">c.Data[<span class="string">&quot;map_struct&quot;</span>] = map_struct</span><br><span class="line">c.TplName = <span class="string">&quot;index.html&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 前端获取：先循环map，在获取结构体变量，注意是大写</span></span><br><span class="line">&#123;&#123;<span class="keyword">range</span> $v :=.map_struct&#125;&#125;</span><br><span class="line">	&#123;&#123;$v.Name&#125;&#125;</span><br><span class="line">&#123;&#123;end&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h5 id="切片渲染">切片渲染</h5>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">slice := []<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;</span><br><span class="line">c.Data[<span class="string">&quot;slice&quot;</span>] = slice</span><br><span class="line"></span><br><span class="line"><span class="comment">// 前端：只有一个值的时候默认是切片的元素，而不是角标</span></span><br><span class="line">&#123;&#123;<span class="keyword">range</span> $v := .slice&#125;&#125;</span><br><span class="line">	&#123;&#123;$v&#125;&#125;</span><br><span class="line">&#123;&#123;end&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="获取请求数据">获取请求数据</h3>
+<h4 id="获取url上的参数">获取url上的参数</h4>
+<ul>
+<li>?后面的 ：<a class="link"   target="_blank" rel="noopener" href="http://127.0.0.1:8090/user/?id=111" >http://127.0.0.1:8090/user/?id=111 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+</ul>
+<p>==可以使用数据绑定，请看数据绑定章节==</p>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方式一：在路由处对参数类型进行修饰</span></span><br><span class="line"><span class="comment">// request_path/?:参数名:参数类型</span></span><br><span class="line">beego.Router(<span class="string">&quot;/user/?:id:int&quot;</span>, &amp;chapter02.UserController&#123;&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GetString获取数据：</span><br><span class="line">    路由：    beego.Router(<span class="string">&quot;/user&quot;</span>, &amp;controllers_user.UserController&#123;&#125;)</span><br><span class="line">    访问路径：http:<span class="comment">//127.0.0.1:8090/user/?id=111</span></span><br><span class="line">    获取数据：</span><br><span class="line">        <span class="comment">// id := c.Input().Get(&quot;id&quot;)</span></span><br><span class="line">        id2 := c.GetString(<span class="string">&quot;id&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 这种方式不行：</span></span><br><span class="line">            <span class="comment">// id3 := c.Ctx.Input.Param(&quot;:id&quot;)</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>/:id的 ：<a class="link"   target="_blank" rel="noopener" href="http://127.0.0.1:8090/user/111" >http://127.0.0.1:8090/user/111 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+</ul>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方式二：在获取参数阶段对参数类型进行修饰</span></span><br><span class="line"><span class="comment">// beego.Router(&quot;/user&quot;, &amp;chapter02.UserController&#123;&#125;)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">路由：beego.Router(<span class="string">&quot;/user/?:id:int&quot;</span>, &amp;controllers_user.UserController&#123;&#125;)</span><br><span class="line">访问路径：http:<span class="comment">//127.0.0.1:8090/user/111</span></span><br><span class="line">获取数据：</span><br><span class="line">  id := c.GetString(<span class="string">&quot;:id&quot;</span>)</span><br><span class="line">  <span class="comment">// id2 := c.Ctx.Input.Param(&quot;:id&quot;)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 这种方式不行：</span></span><br><span class="line">  <span class="comment">// id3 := c.Input().Get(&quot;:id&quot;)</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="获取请求信息">获取请求信息</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">this.Ctx.Request                所有的请求信息</span><br><span class="line">this.Ctx.Request.Header         请求头</span><br><span class="line">this.Ctx.Request.Host           请求的主机</span><br><span class="line">this.Ctx.Request.Method         请求的方法</span><br></pre></td></tr></table></figure></div>
+<h4 id="获取form表单数据">获取form表单数据</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">GetString(key <span class="type">string</span>) <span class="type">string</span></span><br><span class="line">GetStrings(key <span class="type">string</span>) []<span class="type">string</span></span><br><span class="line">GetInt(key <span class="type">string</span>) (<span class="type">int64</span>, <span class="type">error</span>)         --返回两个值</span><br><span class="line">GetBool(key <span class="type">string</span>) (<span class="type">bool</span>, <span class="type">error</span>)         --返回两个值</span><br><span class="line">GetFloat(key <span class="type">string</span>) (<span class="type">float64</span>, <span class="type">error</span>)     --返回两个值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line"></span><br><span class="line">前端form表单：</span><br><span class="line"></span><br><span class="line">&lt;form action=<span class="string">&quot;/user&quot;</span> method=<span class="string">&quot;post&quot;</span>&gt;</span><br><span class="line">    年龄<span class="number">1</span>：&lt;input <span class="keyword">type</span>=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;age&quot;</span>&gt;&lt;br&gt;</span><br><span class="line">    姓名<span class="number">1</span>：&lt;input <span class="keyword">type</span>=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;name&quot;</span>&gt;&lt;br&gt;</span><br><span class="line">    地址：&lt;input <span class="keyword">type</span>=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;addr&quot;</span>&gt;&lt;br&gt;</span><br><span class="line">    姓名<span class="number">2</span>：&lt;input <span class="keyword">type</span>=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;name&quot;</span>&gt;&lt;br&gt;</span><br><span class="line">    年龄<span class="number">2</span>：&lt;input <span class="keyword">type</span>=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;age&quot;</span>&gt;&lt;br&gt;</span><br><span class="line">    是：&lt;input <span class="keyword">type</span>=<span class="string">&quot;radio&quot;</span> name=<span class="string">&quot;is_true&quot;</span> value=<span class="string">&quot;true&quot;</span>&gt;</span><br><span class="line">    否：&lt;input <span class="keyword">type</span>=<span class="string">&quot;radio&quot;</span> name=<span class="string">&quot;is_true&quot;</span> value=<span class="string">&quot;false&quot;</span>&gt;&lt;br&gt;</span><br><span class="line">    价格：&lt;input <span class="keyword">type</span>=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;price&quot;</span>&gt;&lt;br&gt;</span><br><span class="line">    &lt;input <span class="keyword">type</span>=<span class="string">&quot;submit&quot;</span> value=<span class="string">&quot;提交&quot;</span>&gt;&lt;br&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">获取数据：</span><br><span class="line"></span><br><span class="line">name := c.Input().Get(<span class="string">&quot;name&quot;</span>)  <span class="comment">// 获取的是第一个name的值</span></span><br><span class="line">names := c.GetStrings(<span class="string">&quot;name&quot;</span>)   <span class="comment">// 获取所有的name的值，是个数组</span></span><br><span class="line">age := c.Input().Get(<span class="string">&quot;age&quot;</span>)</span><br><span class="line">age,_ := c.GetInt64(<span class="string">&quot;age&quot;</span>)</span><br><span class="line">is_true , _ := c.GetBool(<span class="string">&quot;is_true&quot;</span>)</span><br><span class="line">price , _ := c.GetFloat(<span class="string">&quot;price&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<h4 id="form表单解析到结构体">form表单解析到结构体</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Student <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id   <span class="type">int</span></span><br><span class="line">	Name <span class="type">string</span> <span class="string">`form:&quot;user_name&quot;`</span></span><br><span class="line">	Pwd  <span class="type">string</span> <span class="string">`form:&quot;user_pwd&quot;`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(s *StudentController)</span></span> Post()  &#123;</span><br><span class="line">    stu := Student&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> err := u.ParseForm(&amp;stu); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="comment">//handle error</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	fmt.Printf(<span class="string">&quot;stu_name: %s\n&quot;</span>, stu.Name)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;stu_password: %s\n&quot;</span>, stu.Pwd)</span><br><span class="line"></span><br><span class="line">	u.Ctx.WriteString(<span class="string">&quot;提交成功&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="ajax提交">ajax提交</h4>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> user_name_input = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#user_name&quot;</span>)</span><br><span class="line">    <span class="keyword">var</span> user_pwd_input = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#user_pwd&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> loggin_btn = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#loggin_btn&quot;</span>)</span><br><span class="line"></span><br><span class="line">    loggin_btn.<span class="property">onclick</span> = <span class="keyword">function</span> (<span class="params">even</span>) &#123; </span><br><span class="line">    <span class="keyword">var</span> user_name = user_name_input.<span class="property">value</span>;</span><br><span class="line">    <span class="keyword">var</span> user_pwd = user_pwd_input.<span class="property">value</span>;</span><br><span class="line"></span><br><span class="line">    $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">        <span class="attr">url</span>: <span class="string">&quot;/user_login_ajax&quot;</span>, </span><br><span class="line">        <span class="attr">method</span>: <span class="string">&quot;POST&quot;</span>,</span><br><span class="line">        <span class="attr">data</span>: &#123;</span><br><span class="line">            <span class="string">&quot;user_name&quot;</span>: user_name,</span><br><span class="line">            <span class="string">&quot;user_pwd&quot;</span>: user_pwd</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">success</span>: <span class="function">(<span class="params">result</span>) =&gt;</span> &#123;  </span><br><span class="line">            result[<span class="string">&#x27;code&#x27;</span>] == <span class="number">200</span> ? <span class="title function_">alert</span>(result[<span class="string">&#x27;msg&#x27;</span>]) : alert[<span class="string">&#x27;登录失败&#x27;</span>]</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">error</span>: <span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
+<h3 id="文件上传">文件上传</h3>
+<h4 id="form方式上传">form方式上传</h4>
+<ul>
+<li>前端</li>
+</ul>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">前端：</span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/upload&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span> </span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line">这里必须设置enctype=&quot;multipart/form-data&quot;，不然浏览器不会传送文件</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>后端</li>
+</ul>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> UploadController <span class="keyword">struct</span> &#123;</span><br><span class="line">	beego.Controller</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(u *UploadController)</span></span> Get() &#123;</span><br><span class="line">	u.TplName = <span class="string">&quot;chapter02/upload.html&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(u *UploadController)</span></span> Post() &#123;</span><br><span class="line">	<span class="comment">// 获取上传的文件</span></span><br><span class="line">	file, header, _ := u.GetFile(<span class="string">&quot;file&quot;</span>)</span><br><span class="line">	<span class="keyword">defer</span> file.Close()</span><br><span class="line"></span><br><span class="line">	fmt.Printf(<span class="string">&quot;file_name: %s\n&quot;</span>, header.Filename)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 保存上传的文件</span></span><br><span class="line">	<span class="comment">// 获取时间戳</span></span><br><span class="line">	time_unix := time.Now().Unix()</span><br><span class="line"></span><br><span class="line">	file_name := fmt.Sprintf(<span class="string">&quot;%d_%s&quot;</span>, time_unix, header.Filename)</span><br><span class="line"></span><br><span class="line">	u.SaveToFile(<span class="string">&quot;file&quot;</span>, <span class="string">&quot;upload_file/&quot;</span>+file_name)</span><br><span class="line"></span><br><span class="line">	u.Data[<span class="string">&quot;json&quot;</span>] = <span class="keyword">map</span>[<span class="type">string</span>]<span class="keyword">interface</span>&#123;&#125;&#123;</span><br><span class="line">		<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">		<span class="string">&quot;msg&quot;</span>:  <span class="string">&quot;上传成功&quot;</span>,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	u.ServeJSON()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>==注意：相同文件名的文件会被后面上传的覆盖，可以使用时间戳重命名文件==</p>
+<h4 id="ajax方式上传">ajax方式上传</h4>
+<ul>
+<li>前端</li>
+</ul>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">&quot;file&quot;</span> id=<span class="string">&quot;upload_input&quot;</span>&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;upload_btn&quot;</span>&gt;</span>上传<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/static/js/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    $(<span class="string">&#x27;#upload_btn&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="keyword">var</span> form_data = <span class="keyword">new</span> <span class="title class_">FormData</span>()</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="variable language_">console</span>.<span class="title function_">log</span>($(<span class="string">&quot;#upload_input&quot;</span>));</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    form_data.<span class="title function_">append</span>(<span class="string">&#x27;file&#x27;</span>, $(<span class="string">&quot;#upload_input&quot;</span>)[<span class="number">0</span>].<span class="property">files</span>[<span class="number">0</span>])</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    $.<span class="title function_">ajax</span>(&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="attr">type</span>: <span class="string">&quot;POST&quot;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="attr">url</span>: <span class="string">&quot;/upload&quot;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="attr">data</span>: form_data,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="attr">processData</span>: <span class="literal">false</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="attr">contentType</span>: <span class="literal">false</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="attr">success</span>: <span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="title function_">alert</span>(response[<span class="string">&#x27;msg&#x27;</span>])</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>processData 默认为true，当设置为true的时候,jquery ajax 提交的时候不会序列化 data，而是直接使用data</li>
+<li>contentType: false 不使用默认的application/x-www-form-urlencoded这种contentType
+<ul>
+<li>分界符：目的是防止上传文件中出现分界符导致服务器无法正确识别文件起始位置</li>
+<li>ajax 中 contentType 设置为 false 是为了避免 JQuery 对其操作，从而失去分界符</li>
+</ul>
+</li>
+</ul>
+<h3 id="多种格式数据输出">多种格式数据输出</h3>
+<blockquote>
+<h4 id="背景：假如前端或者提供的接口必须以指定的格式传输">背景：假如前端或者提供的接口必须以指定的格式传输</h4>
+</blockquote>
+<h4 id="json格式">json格式</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 会设置 content-type 为 application/json</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> TestController <span class="keyword">struct</span> &#123;</span><br><span class="line">    beego.Controller</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Teacher <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id   <span class="type">int</span></span><br><span class="line">	Name <span class="type">string</span></span><br><span class="line">	Age  <span class="type">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(o *OtherTypeController)</span></span> Get() &#123;</span><br><span class="line">	teacher := Teacher&#123;<span class="number">1</span>, <span class="string">&quot;lubo&quot;</span>, <span class="number">19</span>&#125;</span><br><span class="line">    </span><br><span class="line">    o.Data[<span class="string">&quot;json&quot;</span>] = teacher <span class="comment">// 这里必须叫json,因为ServeJSON()解析json变量的</span></span><br><span class="line">	o.ServeJSON()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="xml格式">xml格式</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 会设置 content-type 为 application/xml</span></span><br><span class="line"></span><br><span class="line">teacher := Teacher&#123;<span class="number">1</span>, <span class="string">&quot;lubo&quot;</span>, <span class="number">19</span>&#125;</span><br><span class="line">g.Data[<span class="string">&quot;xml&quot;</span>] = teacher <span class="comment">// 这里必须叫xml,同上</span></span><br><span class="line">o.ServeXML()</span><br></pre></td></tr></table></figure></div>
+<h4 id="jsonp格式">jsonp格式</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 会设置 content-type 为 application/javascript</span></span><br><span class="line"></span><br><span class="line">teacher := Teacher&#123;<span class="number">1</span>, <span class="string">&quot;lubo&quot;</span>, <span class="number">19</span>&#125;</span><br><span class="line">g.Data[<span class="string">&quot;jsonp&quot;</span>] = &amp;test_data  <span class="comment">// 这里必须叫jsonp,同上</span></span><br><span class="line">g.ServeJSONP()</span><br></pre></td></tr></table></figure></div>
+<h4 id="yaml格式">yaml格式</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 会以文件传输的方式，yaml就是键值对</span></span><br><span class="line"></span><br><span class="line">teacher := Teacher&#123;<span class="number">1</span>, <span class="string">&quot;lubo&quot;</span>, <span class="number">19</span>&#125;</span><br><span class="line">g.Data[<span class="string">&quot;yaml&quot;</span>] = &amp;test_data</span><br><span class="line">g.ServeYAML()</span><br></pre></td></tr></table></figure></div>
+<h4 id="yaml格式-2">yaml格式</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">student:</span><br><span class="line">  - name : <span class="string">&quot;zhiliao&quot;</span></span><br><span class="line">  - age : <span class="number">18</span></span><br><span class="line"></span><br><span class="line">teacher:</span><br><span class="line">  - name : <span class="string">&quot;laowang&quot;</span></span><br><span class="line">  -age : <span class="number">38</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">addr: <span class="string">&quot;市区&quot;</span></span><br><span class="line">说明：  </span><br><span class="line">  <span class="number">1.</span>大小写敏感</span><br><span class="line">  <span class="number">2.</span>使用缩进表示层级关系</span><br><span class="line">  <span class="number">3.</span>缩进不允许使用tab，只允许空格</span><br><span class="line">  <span class="number">4.</span>缩进的空格数不重要，只要相同层级的元素左对齐即可</span><br><span class="line">  <span class="number">5.</span><span class="string">&#x27;#&#x27;</span>表示注释</span><br><span class="line">  <span class="number">6.</span>以 - 开头的行表示构成一个数组，支持多维数组</span><br></pre></td></tr></table></figure></div>
+<h2 id="三、view模块">三、view模块</h2>
+<h3 id="常用模板语法">常用模板语法</h3>
+<h4 id="基本语法">基本语法</h4>
+<ul>
+<li>使用<code>.</code>来访问当前位置的上下文</li>
+<li>使用<code>$</code>来引用当前模板根级的上下文</li>
+<li>使用 $. 引用模板中的<strong>根级</strong>上下文</li>
+</ul>
+<h4 id="其他常用模板语法">其他常用模板语法</h4>
+<ul>
+<li>
+<p>支持go语言的符号，这里只是符号的支持</p>
+<ul>
+<li>字符串：{ { “Jinxiao ” } }</li>
+<li>原始字符串：{ { `Jinxiao` } } 不会转义</li>
+<li>字节类型:{ { ’ a’ } }  --&gt; 97 ascll码对应表： <a class="link"   target="_blank" rel="noopener" href="http://ascii.911cha.com/" >http://ascii.911cha.com/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li>nil:{ { print nil } } { {nil } }只有nil会报错：nil is not a command</li>
+</ul>
+</li>
+<li>
+<p>if：判断</p>
+  <div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;<span class="keyword">if</span> gt 19 18&#125;&#125;</span><br><span class="line">	19大于18</span><br><span class="line">&#123;&#123;<span class="keyword">else</span>&#125;&#125;</span><br><span class="line">	19不大于18</span><br><span class="line">&#123;&#123;end&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>range：循环</p>
+  <div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;range .arr1&#125;&#125;</span><br><span class="line">    &#123;&#123;.&#125;&#125;</span><br><span class="line">&#123;&#123;<span class="keyword">else</span>&#125;&#125;</span><br><span class="line">    暂无数据</span><br><span class="line">&#123;&#123;end&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<p>==注：range也支持else，表示空数组的时候执行==</p>
+</li>
+<li>
+<p>template：对于模板的分模块处理很有用处，引入另一个模板文件</p>
+  <div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;template <span class="string">&quot;Chapter03/test_template.html&quot;</span> .&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<p>==注意：如果引入的文件也需要获取动态数据，那{ {template “bottom.html” .} }中必须使用 . 访问当前位置的上下文==</p>
+</li>
+</ul>
+<h3 id="常用模板函数">常用模板函数</h3>
+<h4 id="and">and</h4>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 一个为空则整体为空，如果都不为空，则返回最后一个 --&gt;</span></span><br><span class="line">&#123;&#123;and .x .y .z&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="or">or</h4>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 只要由一个不为空，就返回第一个不为空的，否则返回空 --&gt;</span></span><br><span class="line">&#123;&#123;or .x .y .z&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="index">index</h4>
+<p>==读取指定类型对应下标的值==</p>
+<h6 id="后端">后端</h6>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">t.Data[<span class="string">&quot;arr&quot;</span>] = []<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line">t.Data[<span class="string">&quot;map_data&quot;</span>] = <span class="keyword">map</span>[<span class="type">string</span>]<span class="keyword">interface</span>&#123;&#125;&#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;lubo&quot;</span>,</span><br><span class="line">    <span class="string">&quot;age&quot;</span>:  <span class="number">19</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h6 id="前端">前端</h6>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 获取角标为1的值 --&gt;</span></span><br><span class="line">&#123;&#123;index .arr 1&#125;&#125; <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;&#123;index .map_data &quot;name&quot;&#125;&#125; <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">&#123;&#123;index .map_data &quot;age&quot;&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="len">len</h4>
+<p>==返回对应类型的长度==</p>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;len .arr&#125;&#125; <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">&#123;&#123;.arr | len&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="not">not</h4>
+<p>==返回输入参数的否定值==</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;.is_ok&#125;&#125; &lt;br&gt;</span><br><span class="line">&#123;&#123;not .is_ok&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="eq-ne-lt-le-gt-ge">eq / ne / lt / le / gt / ge</h4>
+<h6 id="后端-2">后端</h6>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t.Data[<span class="string">&quot;map_data&quot;</span>] = <span class="keyword">map</span>[<span class="type">string</span>]<span class="keyword">interface</span>&#123;&#125;&#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;lubo&quot;</span>,</span><br><span class="line">    <span class="string">&quot;age&quot;</span>:  <span class="number">19</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h6 id="前端-2">前端</h6>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;if gt (index .map_data &quot;age&quot;) 18&#125;&#125;</span><br><span class="line">	okok hahaha</span><br><span class="line">&#123;&#123;else&#125;&#125;</span><br><span class="line">	nono kujiji</span><br><span class="line">&#123;&#123;end&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>
+<p>eq：等于 equls</p>
+</li>
+<li>
+<p>ne：不等于</p>
+</li>
+<li>
+<p>lt：小于 less</p>
+</li>
+<li>
+<p>le：小于等于 区别于lte</p>
+</li>
+<li>
+<p>gt:大于 greater</p>
+</li>
+<li>
+<p>ge：大于等于 区别于gte</p>
+</li>
+</ul>
+<h3 id="内置模板函数">内置模板函数</h3>
+<h4 id="date-格式化时间">date 格式化时间</h4>
+<h6 id="后端-3">后端</h6>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t.Data[&quot;date&quot;] = time.Now()</span><br></pre></td></tr></table></figure></div>
+<h6 id="前端-3">前端</h6>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;.date&#125;&#125; <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">&#123;&#123;date .date &quot;Y-m-d H:i:s&quot;&#125;&#125; </span><br></pre></td></tr></table></figure></div>
+<h4 id="compare-比较">compare 比较</h4>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;compare 98 98&#125;&#125; <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">&#123;&#123;compare &#x27;a&#x27; 97&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="substr-截取字符串">substr 截取字符串</h4>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;substr &quot;人面不知何处去，桃花依旧笑春风&quot; 0 7&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="map-get-获取map的指定key值">map_get 获取map的指定key值</h4>
+<h6 id="后端-4">后端</h6>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t.Data[<span class="string">&quot;map_data&quot;</span>] = <span class="keyword">map</span>[<span class="type">string</span>]<span class="keyword">interface</span>&#123;&#125;&#123;</span><br><span class="line">	<span class="string">&quot;name&quot;</span>: <span class="string">&quot;lubo&quot;</span>,</span><br><span class="line">	<span class="string">&quot;age&quot;</span>:  <span class="number">19</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h6 id="前端-4">前端</h6>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;map_get .map_data &quot;name&quot;&#125;&#125; <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">&#123;&#123;index .map_data &quot;name&quot;&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="url-for">url_for</h4>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;urlfor &quot;TemplateBuiltIn.Get&quot;&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="自定义模板函数">自定义模板函数</h3>
+<h4 id="第一步、定义函数">第一步、定义函数</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义模板函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SubStrAndRep</span><span class="params">(str <span class="type">string</span>, start_num, end_num <span class="type">int</span>)</span></span> <span class="type">string</span> &#123;</span><br><span class="line">	fmt.Printf(<span class="string">&quot;string: %s\n&quot;</span>, str)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;start_num: %d\n&quot;</span>, start_num)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;end_num: %d\n&quot;</span>, end_num)</span><br><span class="line"></span><br><span class="line">	str_bt := []<span class="type">rune</span>(str)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 尾端长度大于字符串长度返回退出</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(str) &lt;= end_num &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="type">string</span>(str_bt)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="type">string</span>(str_bt[start_num:end_num]) + <span class="string">&quot;...&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="第二步、AddFuncMap">第二步、AddFuncMap</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在 main.go 文件的 beego.Run() 之前</span></span><br><span class="line">beego.AddFuncMap(<span class="string">&quot;substr_rep&quot;</span>, chapter03.SubStrAndRep)</span><br></pre></td></tr></table></figure></div>
+<h4 id="第三步、前端使用">第三步、前端使用</h4>
+<div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;substr_rep &quot;落花人独立，微雨燕双飞&quot; 0 4&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="四、controller模块">四、controller模块</h2>
+<h3 id="配置文件的使用">配置文件的使用</h3>
+<h4 id="读取配置">读取配置</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name := beego.AppConfig.String(<span class="string">&quot;name&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<h4 id="引入其他配置文件">引入其他配置文件</h4>
+<p>app.conf是主配置文件。其他的配置文件需要再app.conf中引入</p>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include <span class="string">&quot;mysql.conf&quot;</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="常用的配置">常用的配置</h4>
+<ol>
+<li>
+<p>ViewsPath：模板路径，默认值是 views。</p>
+</li>
+<li>
+<p>StaticDir：静态文件目录设置，默认是static</p>
+</li>
+<li>
+<p>sessionon：session 是否开启，默认是 false</p>
+</li>
+<li>
+<p>httpport：监听端口</p>
+</li>
+<li>
+<p>EnableXSRF：EnableXSRF</p>
+</li>
+<li>
+<p>XSRFExpire：XSRF 过期时间，默认值是 0，不过期。</p>
+</li>
+<li>
+<p>MaxMemory：文件上传默认内存缓存大小，默认值是1 &lt;&lt; 26(64M)。</p>
+</li>
+<li>
+<p>RunMode：应用的运行模式，可选值为prod,dev或者test. 默认是dev, 为开发模式</p>
+</li>
+</ol>
+<h3 id="路由">路由</h3>
+<h4 id="固定路由">固定路由</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一个固定的路由，一个控制器，然后根据用户请求方法不同请求控制器中对应的方法</span></span><br><span class="line">beego.Router(<span class="string">&quot;/index&quot;</span>, &amp;controllers.MainController&#123;&#125;)</span><br></pre></td></tr></table></figure></div>
+<h4 id="正则路由">正则路由</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">beego.Router(“/api/?:id”, &amp;controllers.RController&#123;&#125;)</span><br><span class="line">beego.Router(“/api/?:id:<span class="type">int</span>”, &amp;controllers.RController&#123;&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// :id([0-9]+) 或者 :id([\d]+) 或者 :id:int</span></span><br><span class="line"><span class="comment">// :username([\w]+) 或者 :username:string</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="自动路由">自动路由</h4>
+<blockquote>
+<h4 id="注册路由的时候不需要指定url，只需要注册控制器即可">注册路由的时候不需要指定url，只需要注册控制器即可</h4>
+<p>beego.AutoRouter(&amp;controllers.UserController{})</p>
+<p>规则：</p>
+<p>/控制器名/方法名/后面的都是参数。。。</p>
+<p>如：/user/get/123/456</p>
+</blockquote>
+<h4 id="自定义路由">自定义路由</h4>
+<blockquote>
+<h4 id="注册路由的时候可以指定第三个参数，这个参数就是用来自定义路由的">注册路由的时候可以指定第三个参数，这个参数就是用来自定义路由的</h4>
+<p>==用法: method ：函数名==</p>
+<p>post: Login   // post请求的时候访问Login函数</p>
+<p>get: User      // get请求的时候访问User函数</p>
+<p>*: LoginOut  // 所有的请求方法都访问LoginOut函数</p>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beego.Router(<span class="string">&quot;/router&quot;</span>, &amp;chapter04.RouterController&#123;&#125;, <span class="string">&quot;get:List&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<h3 id="自定义过滤器">自定义过滤器</h3>
+<h4 id="过滤器方法">过滤器方法</h4>
+<blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beego.InsertFilter(pattern <span class="type">string</span>, position <span class="type">int</span>, filter FilterFunc, params ...<span class="type">bool</span>)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>
+<p>第一个参数表示过滤的路由规则，支持通配符</p>
+</li>
+<li>
+<p>第二个参数就是过滤器的位置，beego支持的有5种</p>
+<ul>
+<li>BeforeStatic 静态地址之前</li>
+<li>BeforeRouter 寻找路由之前</li>
+<li>BeforeExec 找到路由之后，开始执行相应的 Controller 之前</li>
+<li>AfterExec 执行完 Controller 逻辑之后执行的过滤器</li>
+<li>FinishRouter 执行完逻辑之后执行的过滤器</li>
+</ul>
+</li>
+<li>
+<p>第三个参数为执行的函数</p>
+<ul>
+<li>==func(*context.Context) 参数必须是context.Context , context是beego包下的==</li>
+</ul>
+</li>
+<li>
+<p>其他参数：使用默认得到true即可</p>
+</li>
+</ul>
+<h5 id="font-color-red-注意：-font-使用-session-的-Filter-必须在-BeforeStatic-之后才能获取，因为-session-没有在这之前初始化。"><font color="red">注意：</font>使用 session 的 Filter 必须在 BeforeStatic 之后才能获取，因为 session 没有在这之前初始化。</h5>
+</blockquote>
+<h4 id="路由设置">路由设置</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不用登录就能访问的</span></span><br><span class="line">beego.Router(<span class="string">&quot;/&quot;</span>, &amp;controllers.MainController&#123;&#125;)</span><br><span class="line">beego.Router(<span class="string">&quot;/login&quot;</span>, &amp;chapter04.LoginController&#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要登录才能访问的</span></span><br><span class="line">beego.Router(<span class="string">&quot;cms/test1&quot;</span>, &amp;chapter04.ConfigController&#123;&#125;)</span><br><span class="line">beego.Router(<span class="string">&quot;cms/test2&quot;</span>, &amp;chapter04.ConfigController&#123;&#125;)</span><br><span class="line">beego.Router(<span class="string">&quot;cms/test3&quot;</span>, &amp;chapter04.ConfigController&#123;&#125;)</span><br><span class="line">beego.Router(<span class="string">&quot;cms/test4&quot;</span>, &amp;chapter04.ConfigController&#123;&#125;)</span><br><span class="line">beego.Router(<span class="string">&quot;cms/test5&quot;</span>, &amp;chapter04.ConfigController&#123;&#125;)</span><br></pre></td></tr></table></figure></div>
+<h4 id="代码演示">代码演示</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// 设置过滤器</span></span><br><span class="line">	beego.InsertFilter(<span class="string">&quot;/cms/*&quot;</span>, beego.BeforeRouter, chapter04.MyFilter)</span><br><span class="line">	</span><br><span class="line">    beego.Run()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意：过滤器必须添加 ctr *context.Context 这个参数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">MyFilter</span><span class="params">(ctx *context.Context)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 获取session</span></span><br><span class="line">	user_name := ctx.Input.Session(<span class="string">&quot;user_name&quot;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> user_name == <span class="literal">nil</span> &#123;</span><br><span class="line">		ctx.WriteString(<span class="string">&quot;没有登录&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="表单验证">表单验证</h3>
+<h4 id="安装">安装</h4>
+<div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/astaxie/beego/validation</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<h6 id="使用-go-mod-怎样安装">使用 go mod 怎样安装</h6>
+<ol>
+<li>
+<p>在 import 中加入所要导入的包的路径</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/coderlubo/blogimages@main/images/2023/03/08/1a39dcdc6804d7f20a8c40b529af11f3-mod%E5%AF%BC%E5%8C%85-fa2463.png"
+                      alt=""
+                ></p>
+</li>
+<li>
+<p>使用以下命令自动导入依赖包</p>
+ <div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go mod vendor</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+</blockquote>
+<h4 id="使用">使用</h4>
+<h5 id="结构体定义tag">结构体定义tag</h5>
+<ul>
+<li>验证函数写在 “valid” tag 的标签里</li>
+<li>各个函数之间用分号 “;” 分隔，分号后面可以有空格</li>
+<li>参数用括号 “()” 括起来，多个参数之间用逗号 “,” 分开，逗号后面可以有空格</li>
+<li>正则函数(Match)的匹配模式用两斜杠 “/” 括起来</li>
+<li>各个函数的结果的 key 值为字段名.验证函数名</li>
+</ul>
+<h6 id="前端-5">前端</h6>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">&quot;/test_valid&quot;</span> method=<span class="string">&quot;POST&quot;</span>&gt;</span><br><span class="line">    用户名: &lt;input <span class="keyword">type</span>=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;user_name&quot;</span>&gt; &lt;br&gt;</span><br><span class="line">    密　码: &lt;input <span class="keyword">type</span>=<span class="string">&quot;password&quot;</span> name=<span class="string">&quot;password&quot;</span>&gt; &lt;br&gt;</span><br><span class="line">    &lt;input <span class="keyword">type</span>=<span class="string">&quot;submit&quot;</span>&gt; </span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure></div>
+<h6 id="后端-5">后端</h6>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> MyUser <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id       <span class="type">int</span></span><br><span class="line">	UserName <span class="type">string</span> <span class="string">`form:&quot;user_name&quot; valid:&quot;Required&quot;`</span></span><br><span class="line">	Password <span class="type">string</span> <span class="string">`form:&quot;password&quot; valid:&quot;Required&quot;`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(v *ValidController)</span></span> Get() &#123;</span><br><span class="line">	v.TplName = <span class="string">&quot;chapter04/test_valid.html&quot;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(v *ValidController)</span></span> Post() &#123;</span><br><span class="line">	user := MyUser&#123;&#125;</span><br><span class="line"></span><br><span class="line">	v.ParseForm(&amp;user)</span><br><span class="line"></span><br><span class="line">	fmt.Printf(<span class="string">&quot;++++++++++++++++++\n&quot;</span>)</span><br><span class="line">	fmt.Println(user)</span><br><span class="line"></span><br><span class="line">	valid := validation.Validation&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 重写错误信息</span></span><br><span class="line">	<span class="keyword">var</span> MessageTmpls = <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>&#123;</span><br><span class="line">		<span class="string">&quot;Required&quot;</span>: <span class="string">&quot;不能为空&quot;</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	validation.SetDefaultMessage(MessageTmpls)</span><br><span class="line"></span><br><span class="line">	b, err := valid.Valid(&amp;user)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 结构体语法错误</span></span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		v.Ctx.WriteString(<span class="string">&quot;结构体上的tag有问题&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 验证未通过</span></span><br><span class="line">	<span class="keyword">if</span> !b &#123;</span><br><span class="line">		<span class="keyword">for</span> _, err_msg := <span class="keyword">range</span> valid.Errors &#123;</span><br><span class="line">			fmt.Printf(<span class="string">&quot;err_msg Key: %s\n&quot;</span>, err_msg.Key)</span><br><span class="line">			fmt.Printf(<span class="string">&quot;err_msg Message: %s\n&quot;</span>, err_msg.Message)</span><br><span class="line">			v.Ctx.WriteString(err_msg.Key + err_msg.Message + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	v.Ctx.WriteString(<span class="string">&quot;提交成功&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="session-和-cookie">session 和 cookie</h3>
+<h4 id="session">session</h4>
+<blockquote>
+<ul>
+<li>
+<p>Session是在==无状态==的HTTP协议下，服务端记录用户状态时用于标识具体用户的机制</p>
+</li>
+<li>
+<p>它是在服务端保存的用来跟踪用户的状态的数据结构，可以保存在文件、数据库或者集群中</p>
+</li>
+<li>
+<p>在浏览器关闭后这次的Session就消失了，下次打开就不再拥有这个Session。其实不是Session消失了，而是Session ID变了</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="cookie">cookie</h4>
+<blockquote>
+<ul>
+<li>
+<p>Cookie是客户端保存用户信息的一种机制，用来记录用户的一些信息</p>
+</li>
+<li>
+<p>每次HTTP请求时，客户端都会发送相应的Cookie信息到服务端。它的过期时间可以任意设置，如果你不主动清除它，在很长一段时间里面都可以保留着，即便这之间你把电脑关机了。</p>
+</li>
+<li>
+<p>每次客户端发请求的时候会自动携带该域名下的Cookie，不用域名间的Cookie是不能共享的</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="session-和-cookie-的区别">session 和 cookie 的区别</h4>
+<blockquote>
+<ul>
+<li>
+<p>Cookie 在客户端（浏览器），Session 在服务器端。</p>
+</li>
+<li>
+<p>Cookie的安全性一般，他人可通过分析存放在本地的Cookie并进行Cookie欺骗。在安全性第一的前提下，选择Session更优。重要交互信息比如权限等就要放在Session中，一般的信息记录放Cookie就好了。</p>
+</li>
+<li>
+<p>单个Cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个Cookie。</p>
+</li>
+<li>
+<p>Session 可以放在 文件、数据库或内存中</p>
+</li>
+<li>
+<p>用户验证这种场合一般会用 Session。因此，维持一个会话的核心就是客户端的唯一标识，即Session ID。</p>
+</li>
+<li>
+<p>Session 的运行依赖Session ID，而 Session ID 是存在 Cookie 中的，也就是说，如果浏览器禁用了 Cookie，Session 也会失效（但是可以通过其它方式实现，比如在 url 中传递 Session ID）</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="beego中使用session">beego中使用session</h4>
+<h5 id="开启session">开启session</h5>
+<ul>
+<li>main.go中开启：
+<ul>
+<li>beego.BConfig.WebConfig.Session.SessionOn = true</li>
+</ul>
+</li>
+<li>配置文件 <code>(conf/app.conf)</code>中开启：
+<ul>
+<li>sessionon = true</li>
+</ul>
+</li>
+</ul>
+<h5 id="使用session">使用session</h5>
+<ul>
+<li>
+<p>设置session</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法： SetSession(name string, value interface&#123;&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(l *LoginController)</span></span> Get() &#123;</span><br><span class="line">	<span class="comment">// 假设登录成功</span></span><br><span class="line">	<span class="comment">// 设置session</span></span><br><span class="line">	l.SetSession(<span class="string">&quot;user_name&quot;</span>, <span class="string">&quot;lubo&quot;</span>)</span><br><span class="line">	user := l.GetSession(<span class="string">&quot;user_name&quot;</span>)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;获取session: %v\n&quot;</span>, user)</span><br><span class="line"></span><br><span class="line">	l.DelSession(<span class="string">&quot;user_name&quot;</span>)</span><br><span class="line">	user = l.GetSession(<span class="string">&quot;user_name&quot;</span>)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;删除后获取session: %v\n&quot;</span>, user)</span><br><span class="line"></span><br><span class="line">	l.Ctx.WriteString(<span class="string">&quot;设置session成功&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>获取session</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法： GetSession(name string) interface&#123;&#125;</span></span><br><span class="line"></span><br><span class="line">user := l.GetSession(<span class="string">&quot;user_name&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>删除session</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法： DelSession(name string)</span></span><br><span class="line"></span><br><span class="line">l.DelSession(<span class="string">&quot;user_name&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>在过滤器中获取session</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user_name := ctx.Input.Session(<span class="string">&quot;user_name&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+<h5 id="关于session的一些其他配置">关于session的一些其他配置</h5>
+<ul>
+<li>
+<p>设置是否开启 Session</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beego.BConfig.WebConfig.Session.SessionOn <span class="comment">// 默认为false</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>设置 Session 过期的时间</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beego.BConfig.WebConfig.Session.SessionGCMaxLifetime <span class="comment">// 默认值为3600秒</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>设置 cookie 的过期时间</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beego.BConfig.WebConfig.Session.SessionCookieLifeTime <span class="comment">// 默认长期有效</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>设置sessionid加密算法</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">beego.BConfig.WebConfig.Session.SessionHashFunc <span class="comment">// 默认值为 sha1</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>修改sessionkey</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认的 key 是 beegoserversessionkey，建议在使用的时候修改该参数</span></span><br><span class="line">beego.BConfig.WebConfig.Session.SessionHashKey </span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>设置 cookies 的名字</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Session </span></span><br><span class="line"><span class="comment">// 默认是保存在用户的浏览器 cookies 里面的，默认名是 beegosessionID，配置文件对应的参数名是：sessionname</span></span><br><span class="line">beego.BConfig.WebConfig.Session.SessionName</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+<h2 id="五、model模块">五、model模块</h2>
+<h3 id="orm的使用">orm的使用</h3>
+<h4 id="beego中使用">beego中使用</h4>
+<ul>
+<li>
+<p>安装</p>
+  <div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- go get github.com/astaxie/beego/orm</span><br><span class="line">- go get github.com/go-sql-driver/mysql</span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>链接数据库：</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- orm.RegisterDriver(<span class="string">&quot;mysql&quot;</span>, orm.DRMySQL)</span><br><span class="line">- orm.RegisterDataBase(<span class="string">&quot;default&quot;</span>, <span class="string">&quot;mysql&quot;</span>, <span class="string">&quot;用户名:密码@tcp(IP:端口号)/数据库?charset=utf8&quot;</span>, <span class="number">30</span>)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>
+<p>参数一：数据库的别名，用来在 ORM 中切换数据库使用</p>
+</li>
+<li>
+<p>参数二：驱动名称</p>
+</li>
+<li>
+<p>参数三：对应的链接字符串</p>
+</li>
+<li>
+<p>参数四(可选)：设置最大空闲连接</p>
+<ul>
+<li>
+<p>或根据数据库别名设置</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">orm.SetMaxIdleConns(<span class="string">&quot;default&quot;</span>, <span class="number">30</span>)</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+</li>
+<li>
+<p>参数五(可选)：设置最大数据库连接</p>
+<ul>
+<li>
+<p>或根据数据库别名设置</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">orm.SetMaxOpenConns(<span class="string">&quot;default&quot;</span>, <span class="number">30</span>)</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>注册模型</p>
+<ul>
+<li>
+<p>在==init函数==中，只有注册了模型才可以使用</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">orm.RegisterModel(<span class="built_in">new</span>(User), <span class="built_in">new</span>(Profile), <span class="built_in">new</span>(Article), <span class="built_in">new</span>(Post), <span class="built_in">new</span>(Tag))</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+</li>
+<li>
+<p>创建表</p>
+<ul>
+<li>在数据库中操作创建表即可，后面会讲自动迁移表</li>
+</ul>
+</li>
+<li>
+<p>时区设置：</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">orm.DefaultTimeLoc = time.UTC <span class="comment">// 设置为 UTC 时间</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>ORM 在进行 RegisterDataBase 的同时，会获取数据库使用的时区，然后在 time.Time 类型存取时做相应转换，以匹配时间系统，从而保证时间不会出错</li>
+</ul>
+</li>
+<li>
+<p>示例代码</p>
+<ul>
+<li>
+<h6 id="首先创建好数据库和表，表对应结构体中的属性">首先创建好数据库和表，表对应结构体中的属性</h6>
+</li>
+<li>
+<h6 id="mysql-conf链接信息配置：">mysql.conf链接信息配置：</h6>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">username = root</span><br><span class="line">password = llb2001</span><br><span class="line">host = <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line">port = <span class="number">3306</span></span><br><span class="line">database = beego_project</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="main-go中初始化链接">main.go中初始化链接</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// orm.RegisterDriver(&quot;mysql&quot;, orm.DRMySQL)</span></span><br><span class="line"><span class="comment">// orm.RegisterDataBase(&quot;default&quot;, &quot;mysql&quot;, &quot;root:root@/orm_test?charset=utf8&quot;)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">	username := beego.AppConfig.String(<span class="string">&quot;username&quot;</span>)</span><br><span class="line">	password := beego.AppConfig.String(<span class="string">&quot;password&quot;</span>)</span><br><span class="line">	host := beego.AppConfig.String(<span class="string">&quot;host&quot;</span>)</span><br><span class="line">	port := beego.AppConfig.String(<span class="string">&quot;port&quot;</span>)</span><br><span class="line">	database := beego.AppConfig.String(<span class="string">&quot;database&quot;</span>)</span><br><span class="line"></span><br><span class="line">	dataSource := fmt.Sprintf(</span><br><span class="line">		<span class="string">&quot;%s:%s@tcp(%s:%s)/%s?charset=utf8&amp;loc=Local&quot;</span>,</span><br><span class="line">		username, password, host, port, database,</span><br><span class="line">	)</span><br><span class="line"></span><br><span class="line">	orm.RegisterDriver(<span class="string">&quot;mysql&quot;</span>, orm.DRMySQL)</span><br><span class="line">	orm.RegisterDataBase(<span class="string">&quot;default&quot;</span>, <span class="string">&quot;mysql&quot;</span>, dataSource)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 自动建表</span></span><br><span class="line">	name := <span class="string">&quot;default&quot;</span></span><br><span class="line">	force := <span class="literal">false</span></span><br><span class="line">	verbose := <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">	err := orm.RunSyncdb(name, force, verbose)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="built_in">panic</span>(err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 显示查询语句</span></span><br><span class="line">	<span class="comment">// orm.Debug = true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="模型结构体">模型结构体</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意：结构体的字段名首字母必须大写</span></span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id    <span class="type">int</span></span><br><span class="line">	Name  <span class="type">string</span></span><br><span class="line">	Age   <span class="type">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">    orm.RegisterModel(<span class="built_in">new</span>(User))</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 显示查询语句</span></span><br><span class="line">	orm.Debug = <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="增加数据">增加数据</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">o := orm.NewOrm()</span><br><span class="line">o.Using(<span class="string">&quot;default&quot;</span>)    <span class="comment">// default可以不用using</span></span><br><span class="line"></span><br><span class="line">newUser := User&#123;<span class="number">1</span>, <span class="string">&quot;lubo&quot;</span>, <span class="number">18</span>&#125;    </span><br><span class="line"></span><br><span class="line"><span class="comment">//新增数据</span></span><br><span class="line">id, err :=o.Insert(&amp;newUser)    <span class="comment">// 返回添加的数据id以及错误信息</span></span><br></pre></td></tr></table></figure></div>
+<p>==注意：ORM 必须注册一个别名为 default 的数据库，作为默认使用==</p>
+<h3 id="模型定义">模型定义</h3>
+<blockquote>
+<h4 id="用作数据库数据转换和自动建表">用作数据库数据转换和自动建表</h4>
+</blockquote>
+<h4 id="模型名和表名映射">模型名和表名映射</h4>
+<blockquote>
+<h6 id="模型名和表名的映射规则">模型名和表名的映射规则</h6>
+<p>除了开头的大写字母以外，遇到大写会增加 _，原名称中的下划线保留。</p>
+<ul>
+<li>Article -&gt; article</li>
+<li>AuthUser -&gt; auth_user</li>
+<li>Auth_User -&gt; auth__user 两个下划线</li>
+<li>DB_AuthUser -&gt; d_b__auth_user</li>
+</ul>
+</blockquote>
+<blockquote>
+<h6 id="自定义表名">自定义表名</h6>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">  Id <span class="type">int</span></span><br><span class="line">  Name <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(u *User)</span></span> TableName() <span class="type">string</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;auth_user&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</blockquote>
+<h6 id=""></h6>
+<h4 id="设置参数：使用structtag">设置参数：使用structtag</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id         <span class="type">int</span>    <span class="string">`orm:&quot;pk;auto&quot;`</span></span><br><span class="line">	Name       <span class="type">string</span> <span class="string">`orm:&quot;index;unique;size(10)&quot;`</span></span><br><span class="line">	Age        <span class="type">int</span></span><br><span class="line">	Addr       <span class="type">string</span>     <span class="string">`orm:&quot;null;column(address)&quot;`</span></span><br><span class="line">	Price      <span class="type">float64</span>    <span class="string">`orm:&quot;digits(4);decimals(2)&quot;`</span></span><br><span class="line">	CreateTime time.Time  <span class="string">`orm:&quot;auto_now_add;type(datetime)&quot;`</span></span><br><span class="line">	Status     <span class="type">int</span>        <span class="string">`orm:&quot;default(1);description(状态，1启用,0停用)&quot;`</span></span><br><span class="line">	XXX        <span class="type">string</span>     <span class="string">`orm:&quot;-&quot;`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>
+<p>忽略字段structtag：<code>orm:&quot;-&quot;</code></p>
+</li>
+<li>
+<p>pk：设置为主键，适用于自定义其他类型为主键</p>
+</li>
+<li>
+<p>null：Name string <code>orm:&quot;null&quot;</code></p>
+</li>
+<li>
+<p>auto：自增长</p>
+</li>
+<li>
+<p>index：索引。索引的作用：优化查询，相当于图书的目录</p>
+</li>
+<li>
+<p>unique：唯一性约束</p>
+</li>
+<li>
+<p>column：指定字段名</p>
+</li>
+<li>
+<p>size：对string起作用</p>
+</li>
+<li>
+<p>digits / decimals：总位数/小数位数</p>
+</li>
+<li>
+<p>auto_now / auto_now_add</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Created time.Time <span class="string">`orm:&quot;auto_now_add;type(datetime)&quot;`</span> <span class="comment">// auto_now 每次 model 保存时都会对时间自动更新</span></span><br><span class="line">Updated time.Time <span class="string">`orm:&quot;auto_now;type(datetime)&quot;`</span> <span class="comment">// auto_now 每次 model 保存时都会对时间自动更新</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// type: 日期还是时间</span></span><br><span class="line">Created time.Time <span class="string">`orm:&quot;auto_now_add;type(date)&quot;`</span> <span class="comment">// 只有日期</span></span><br><span class="line">Created time.Time <span class="string">`orm:&quot;auto_now_add;type(datetime)&quot;`</span> <span class="comment">// 日期+时间</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>default： 设置默认值</p>
+</li>
+<li>
+<p>description：注释</p>
+<blockquote>
+<p>如果无效则修改源码：cmd_utils.go的 getColumnAddQuery()最后加：fi.description,</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="表关系">表关系</h4>
+<h5 id="一对一">一对一</h5>
+<ul>
+<li>User模型中： Profile *Profile <code>orm:&quot;rel(one)&quot;</code> 正向关系，有外键字段</li>
+<li>Profile模型中： User *User <code>orm:&quot;reverse(one)&quot;</code> 反向关系，只是关系，没有外键</li>
+</ul>
+<h5 id="一对多">一对多</h5>
+<ul>
+<li>article模型中：User *User <code>orm:&quot;rel(fk)&quot;</code> 正向关系，有外键，外键在多的一方</li>
+<li>user模型中：Articles []*Articles `orm:“reverse(many)” 反向关系，没有外键</li>
+</ul>
+<p>一对多，外键在多的一方</p>
+<h5 id="多对多">多对多</h5>
+<ul>
+<li>post模型中：Tags []*Tag <code>orm:&quot;rel(m2m)&quot;</code> 正向关系，没有外键</li>
+<li>tag模型中：Posts []*Post <code>orm:&quot;reverse(many)&quot;</code> 反向关系，没有外键</li>
+</ul>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id         <span class="type">int</span>    <span class="string">`orm:&quot;pk;auto&quot;`</span></span><br><span class="line">	Name       <span class="type">string</span> <span class="string">`orm:&quot;index;unique;size(10)&quot;`</span></span><br><span class="line">	Age        <span class="type">int</span></span><br><span class="line">	Addr       <span class="type">string</span>     <span class="string">`orm:&quot;null;column(address)&quot;`</span></span><br><span class="line">	Price      <span class="type">float64</span>    <span class="string">`orm:&quot;digits(4);decimals(2)&quot;`</span></span><br><span class="line">	CreateTime time.Time  <span class="string">`orm:&quot;auto_now_add;type(datetime)&quot;`</span></span><br><span class="line">	Status     <span class="type">int</span>        <span class="string">`orm:&quot;default(1);description(状态，1启用,0停用)&quot;`</span></span><br><span class="line">	XXX        <span class="type">string</span>     <span class="string">`orm:&quot;-&quot;`</span></span><br><span class="line">	Profile    *Profile   <span class="string">`orm:&quot;rel(one)&quot;`</span></span><br><span class="line">	Articles   []*Article <span class="string">`orm:&quot;reverse(many)&quot;`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1对1</span></span><br><span class="line"><span class="keyword">type</span> Profile <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id     <span class="type">int</span></span><br><span class="line">	IdCard <span class="type">string</span></span><br><span class="line">	Cover  <span class="type">string</span></span><br><span class="line">	User   *User <span class="string">`orm:&quot;reverse(one)&quot;`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1对多 外键在多的一方</span></span><br><span class="line"><span class="keyword">type</span> Article <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id      <span class="type">int</span></span><br><span class="line">	Tile    <span class="type">string</span></span><br><span class="line">	Content <span class="type">string</span> <span class="string">`orm:&quot;size(2000)&quot;`</span></span><br><span class="line">	User    *User  <span class="string">`orm:&quot;rel(fk)&quot;`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Post <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id    <span class="type">int</span></span><br><span class="line">	Title <span class="type">string</span></span><br><span class="line">	Tags  []*Tag <span class="string">`orm:&quot;rel(m2m)&quot;`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Tag <span class="keyword">struct</span> &#123;</span><br><span class="line">	Id    <span class="type">int</span></span><br><span class="line">	Name  <span class="type">string</span></span><br><span class="line">	Posts []*Post <span class="string">`orm:&quot;reverse(many)&quot;`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="exper表达式">exper表达式</h3>
+<blockquote>
+<h5 id="前提：注册模型：RegisterModel">前提：注册模型：RegisterModel</h5>
+</blockquote>
+<h4 id="使用QueryTable">使用QueryTable</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">o := orm.NewOrm()</span><br><span class="line"></span><br><span class="line">qs := o.QueryTable(<span class="string">&quot;user&quot;</span>) 表名作为参数</span><br><span class="line"></span><br><span class="line">qs := o.QueryTable(<span class="built_in">new</span>(User)) 也可以直接使用对象作为表名 <span class="comment">// 返回的是QuerySeter</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="exper表达式-2">exper表达式</h4>
+<blockquote>
+<h5 id="两个下划线">两个下划线</h5>
+</blockquote>
+<ol>
+<li>
+<p>exact / iexact：等于，默认值，大小写敏感 / 不敏感</p>
+ <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qs.Filter(<span class="string">&quot;name__exact&quot;</span>,<span class="string">&quot;lubo&quot;</span>).One(&amp;stu)</span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>contains / icontains:包含，大小写敏感 / 不敏感</p>
+ <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qs.Filter(<span class="string">&quot;name__contains&quot;</span>,<span class="string">&quot;lu&quot;</span>).One(&amp;stu)</span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>gt / gte：大于/大于等于</p>
+ <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qs.Filter(<span class="string">&quot;age__gt&quot;</span>,<span class="number">18</span>).One(&amp;stu)</span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>lt / lte：小于/小于等于</p>
+ <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qs.Filter(<span class="string">&quot;age__lt&quot;</span>,<span class="number">18</span>).One(&amp;stu)</span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>startswith / istartswith：以…起始，大小写敏感 / 不敏感</p>
+ <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">qs.Filter(<span class="string">&quot;name__startswith&quot;</span>,<span class="string">&quot;Zh&quot;</span>).One(&amp;stu)</span><br><span class="line">qs.Filter(<span class="string">&quot;name__istartswith&quot;</span>,<span class="string">&quot;Zh&quot;</span>).One(&amp;stu)</span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>endswith / iendswith：以…结束，大小写敏感 / 不敏感</p>
+ <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">qs.Filter(<span class="string">&quot;name__endswith&quot;</span>,<span class="string">&quot;Liao&quot;</span>).One(&amp;stu)</span><br><span class="line">qs.Filter(<span class="string">&quot;name__iendswith&quot;</span>,<span class="string">&quot;Liao&quot;</span>).One(&amp;stu)</span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>in：在某个范围中,值为不定长参数</p>
+ <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qs.Filter(<span class="string">&quot;age__in&quot;</span>, <span class="number">16</span>, <span class="number">19</span>).One(&amp;stu)</span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>isnull：为空，值为 true / false</p>
+ <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qs.Filter(<span class="string">&quot;gender__isnull&quot;</span>,<span class="literal">true</span>).One(&amp;stu)</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<h4 id="查看orm执行的sql语句">查看orm执行的sql语句</h4>
+<ul>
+<li>
+<p>只作用于当前的模型：当前模型的init中orm.Debug = true</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/coderlubo/blogimages@main/images/2023/03/08/7edcae6427aff45df8e0c184c8d691db-%E6%A8%A1%E5%9E%8B%E5%86%85debug-fcd554.png"
+                      alt=""
+                ></p>
+</li>
+<li>
+<p>作用于所有模型：beego.Run()前面设置orm.Debug = true</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/coderlubo/blogimages@main/images/2023/03/08/a9c4f34d2c938e603e35180be92e04aa-%E5%85%A8%E5%B1%80%E6%A8%A1%E5%9E%8Bdebug-7dc062.png"
+                      alt=""
+                ></p>
+</li>
+</ul>
+<h3 id="QueryTable接口">QueryTable接口</h3>
+<h5 id="One">One</h5>
+<blockquote>
+<h5 id="查询一条记录">查询一条记录</h5>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">qs.Filter(<span class="string">&quot;name__exact&quot;</span>,<span class="string">&quot;lubo&quot;</span>).One(&amp;stu)</span><br><span class="line">qs.Filter(<span class="string">&quot;name__exact&quot;</span>,<span class="string">&quot;Zhiliao&quot;</span>).One(&amp;stu,<span class="string">&quot;name&quot;</span>,<span class="string">&quot;age&quot;</span>) <span class="comment">// 指定显示的字段</span></span><br></pre></td></tr></table></figure></div>
+<h5 id="Filter">Filter</h5>
+<blockquote>
+<h5 id="包含条件">包含条件</h5>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 多个 Filter 之间使用 AND 连接</span></span><br><span class="line">qs.Filter(<span class="string">&quot;profile__isnull&quot;</span>, <span class="literal">true</span>).Filter(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;slene&quot;</span>)</span><br><span class="line"><span class="comment">// 类sql: WHERE NOT profile_id IS NULL AND name = &#x27;slene&#x27;</span></span><br></pre></td></tr></table></figure></div>
+<h5 id="All">All</h5>
+<blockquote>
+<h5 id="查询所有记录">查询所有记录</h5>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">o := orm.NewOrm()</span><br><span class="line">qs := o.QueryTable(<span class="built_in">new</span>(chapter05.User))</span><br><span class="line">users := []chapter05.User&#123;&#125;	</span><br><span class="line">qs.All(&amp;users)	<span class="comment">// 返回对应的结果集对象, 默认最大行数为 1000</span></span><br><span class="line"><span class="comment">// qs.All(&amp;users, &quot;name&quot;, &quot;age&quot;) // 指定显示的字段</span></span><br></pre></td></tr></table></figure></div>
+<h5 id="Exclude">Exclude</h5>
+<blockquote>
+<h5 id="排除条件">排除条件</h5>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Exclude 之间使用 AND 连接</span></span><br><span class="line"><span class="comment">// 使用 NOT 排除条件</span></span><br><span class="line"></span><br><span class="line">users := []chapter05.User&#123;&#125;</span><br><span class="line">qs.Exclude(<span class="string">&quot;address__isnull&quot;</span>, <span class="literal">true</span>).All(&amp;users)</span><br></pre></td></tr></table></figure></div>
+<h5 id="Limit">Limit</h5>
+<blockquote>
+<h5 id="限制返回记录的最大行数">限制返回记录的最大行数</h5>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第二个可选参数可以设置Offset，意思从什么位置开始查询</span></span><br><span class="line">qs.Limit(<span class="number">2</span>).All(&amp;users)</span><br><span class="line">qs.Limit(<span class="number">2</span>，<span class="number">1</span>).All(&amp;users) <span class="comment">// 从第1个记录开始，查询两条记录 </span></span><br><span class="line"><span class="comment">// sql的limit：limit 0,2; 从第0个记录开始，查询两条记录</span></span><br></pre></td></tr></table></figure></div>
+<h5 id="Offset">Offset</h5>
+<blockquote>
+<h5 id="设置偏移行数">设置偏移行数</h5>
+<p>即从什么位置开始查询</p>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 角标从0开始，代表第一条数据</span></span><br><span class="line"><span class="comment">// 从第2条记录开始返回两条记录</span></span><br><span class="line">qs.Limit(<span class="number">2</span>).Offset(<span class="number">1</span>).All(&amp;users)	</span><br></pre></td></tr></table></figure></div>
+<h5 id="GroupBy">GroupBy</h5>
+<blockquote>
+<h5 id="根据“By”指定的规则对数据进行分组">根据“By”指定的规则对数据进行分组</h5>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">group by 必须放在 order by 和 limit之前</span><br><span class="line">qs.GroupBy(<span class="string">&quot;age&quot;</span>).All(&amp;users)</span><br></pre></td></tr></table></figure></div>
+<h5 id="OrderBy">OrderBy</h5>
+<blockquote>
+<h5 id="排序">排序</h5>
+<ul>
+<li>
+<p>ASC升序,字段名前面没有- ：qs.OrderBy(“age” ) ==默认==</p>
+</li>
+<li>
+<p>DESC降序,字段名前面有- : qs.OrderBy(“-age” )</p>
+</li>
+</ul>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qs.OrderBy(<span class="string">&quot;-age&quot;</span>, <span class="string">&quot;id&quot;</span>).All(&amp;users) <span class="comment">// 根据多个字段排序,需要用逗号隔开</span></span><br></pre></td></tr></table></figure></div>
+<h5 id="Distinct">Distinct</h5>
+<blockquote>
+<h5 id="去重">去重</h5>
+<ul>
+<li>没有参数。根据指定字段去重，需要在all方法中指定字段，否则根据所有字段去重</li>
+</ul>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qs.Distinct().All(&amp;users, <span class="string">&quot;age&quot;</span>， <span class="string">&quot;addr&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<h5 id="Count">Count</h5>
+<blockquote>
+<h5 id="统计个数">统计个数</h5>
+<ul>
+<li>没有参数，后面不能跟查询条数的方法</li>
+</ul>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// count 统计到的个数， err 错误信息</span></span><br><span class="line">count, err := qs.Filter(<span class="string">&quot;age&quot;</span>, <span class="number">19</span>).Count()</span><br><span class="line"></span><br><span class="line"><span class="comment">// sql：SELECT COUNT(*) FROM user;</span></span><br></pre></td></tr></table></figure></div>
+<h5 id="Exist">Exist</h5>
+<blockquote>
+<h5 id="存在性判断">存在性判断</h5>
+<ul>
+<li>没有参数，后面不能跟查询条数的方法</li>
+</ul>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">is_exist = qs.Filter(<span class="string">&quot;age&quot;</span>, <span class="number">19</span>).Exist() <span class="comment">// 返回 true/false</span></span><br></pre></td></tr></table></figure></div>
+<h5 id="Update">Update</h5>
+<blockquote>
+<h5 id="更新">更新</h5>
+<ul>
+<li>依据当前查询条件，进行批量更新操作</li>
+</ul>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回更新的条数和错误信息</span></span><br><span class="line">num, err := qs.Filter(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;lubo&quot;</span>).Update(orm.Params&#123;</span><br><span class="line">	<span class="string">&quot;address&quot;</span>: <span class="string">&quot;河南洛阳&quot;</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<h5 id="Delete">Delete</h5>
+<blockquote>
+<h5 id="删除">删除</h5>
+<ul>
+<li>依据当前查询条件，进行批量删除操作</li>
+</ul>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回删除的条数和错误信息</span></span><br><span class="line">qs.Filter(<span class="string">&quot;age&quot;</span>, <span class="number">0</span>).Delete()</span><br></pre></td></tr></table></figure></div>
+<h5 id="insert-不是QueryTable接口">insert ==不是QueryTable接口==</h5>
+<blockquote>
+<h5 id="插入">插入</h5>
+</blockquote>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">user := chapter05.User&#123;&#125;</span><br><span class="line"></span><br><span class="line">user.Name = <span class="string">&quot;ali&quot;</span></span><br><span class="line"></span><br><span class="line">profile := chapter05.Profile&#123;&#125;</span><br><span class="line">o.QueryTable(<span class="built_in">new</span>(chapter05.Profile)).Filter(<span class="string">&quot;id&quot;</span>, <span class="number">5</span>).One(&amp;profile)</span><br><span class="line"></span><br><span class="line">user.Profile = &amp;profile</span><br><span class="line"></span><br><span class="line">_, err := o.Insert(&amp;user)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    fmt.Printf(<span class="string">&quot;err: %s\n&quot;</span>, err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="自动建表">自动建表</h3>
+<blockquote>
+<h4 id="前提">前提</h4>
+<ul>
+<li>
+<p>数据库已注册：orm.RegisterDataBase</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">orm.RegisterDriver(<span class="string">&quot;mysql&quot;</span>, orm.DRMySQL)</span><br><span class="line">orm.RegisterDataBase(<span class="string">&quot;default&quot;</span>, <span class="string">&quot;mysql&quot;</span>, dataSource)</span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>模型已注册：orm.RegisterModel</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">orm.RegisterModel(<span class="built_in">new</span>(User), <span class="built_in">new</span>(Profile), <span class="built_in">new</span>(Article), <span class="built_in">new</span>(Post), <span class="built_in">new</span>(Tag))</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+</blockquote>
+<h4 id="法一">法一</h4>
+<ul>
+<li>
+<p>在main.go中调用RunCommand命令</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// beego.Run()之前调用：</span></span><br><span class="line">orm.RunCommand()</span><br></pre></td></tr></table></figure></div>
+</li>
+<li>
+<p>cmd中执行命令</p>
+  <div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run main.go orm syncdb -h</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<h6 id="syncdb参数：">syncdb参数：</h6>
+<ul>
+<li>-db：指定数据库别名，默认使用别名为 default</li>
+<li>-force：删除表后再创建，默认为true</li>
+<li>-v 可以查看执行的 sql 语句</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>查看执行的sql语句</p>
+  <div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go run main.go orm sqlall</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+<h4 id="法二">法二</h4>
+<ul>
+<li>
+<p>在程序中调用直接自动建表</p>
+  <div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自动建表</span></span><br><span class="line">name := <span class="string">&quot;default&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 存在则跳过</span></span><br><span class="line">force := <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印执行过程</span></span><br><span class="line">verbose := <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">err := orm.RunSyncdb(name, force, verbose)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 出错则停止</span></span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="built_in">panic</span>(err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+<h2 id="六、日志模块">六、日志模块</h2>
+<blockquote>
+<h5 id="下载包">下载包</h5>
+<div class="highlight-container" data-rel="Sh"><figure class="iseeu highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/astaxie/beego/logs</span><br></pre></td></tr></table></figure></div>
+</blockquote>
+<h3 id="代码使用">代码使用</h3>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;github.com/astaxie/beego/logs&quot;</span> <span class="comment">// 引入包</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// SetLogger参数</span></span><br><span class="line"><span class="comment">// 第一个参数：引擎</span></span><br><span class="line"><span class="comment">// 第二个参数：日志配置信息,字符串,不同的引擎参数不一样</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*`&#123;&quot;filename&quot;:&quot;project.log&quot;,&quot;level&quot;:7,&quot;maxlines&quot;:0,&quot;maxsize&quot;:0,&quot;daily&quot;:true,&quot;maxdays&quot;:10,&quot;color&quot;:true&#125;`</span></span><br><span class="line"><span class="comment"> 参数：</span></span><br><span class="line"><span class="comment">    - filename 保存的文件名</span></span><br><span class="line"><span class="comment">    - maxlines 每个文件保存的最大行数，默认值 1000000</span></span><br><span class="line"><span class="comment">    - maxsize 每个文件保存的最大尺寸，默认值是 1 &lt;&lt; 28, //256 MB 2^28 1&lt;&lt; 3 2^3</span></span><br><span class="line"><span class="comment">    - daily 是否按照每天 logrotate，默认是 true</span></span><br><span class="line"><span class="comment">    - maxdays 文件最多保存多少天，默认保存 7 天</span></span><br><span class="line"><span class="comment">    - rotate 是否开启 logrotate，默认是 true</span></span><br><span class="line"><span class="comment">    - level 日志保存的时候的级别，默认是 Trace 级别</span></span><br><span class="line"><span class="comment">    - perm 日志文件权限 4(读权限)2(写权限)1(执行权限)</span></span><br><span class="line"><span class="comment">    logs.SetLogger(&quot;console&quot;) // 添加输出引擎*/</span></span><br><span class="line"></span><br><span class="line">logs.Debug(<span class="string">&quot;this is debug&quot;</span>) <span class="comment">// 打印日志</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="日志级别">日志级别</h3>
+<ol>
+<li>
+<p>LevelEmergency</p>
+</li>
+<li>
+<p>LevelAlert</p>
+</li>
+<li>
+<p>LevelCritical</p>
+</li>
+<li>
+<p>LevelError</p>
+</li>
+<li>
+<p>LevelWarn = LevelWarning</p>
+</li>
+<li>
+<p>LevelNotice</p>
+</li>
+<li>
+<p>LevelInfo = LevelInformational</p>
+</li>
+<li>
+<p>LevelTrace = LevelDebug</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cdn.jsdelivr.net/gh/coderlubo/blogimages@main/images/2023/03/08/7315b97f0eb97ef2614ab5148b829f5c-logs_console-67dbbe.png"
+                      alt=""
+                ></p>
+</li>
+</ol>
+<h3 id="引擎">引擎</h3>
+<h4 id="console">console</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输出到控制台</span></span><br><span class="line">logs.SetLogger(logs.AdapterConsole, <span class="string">`&#123;&quot;level&quot;:1,&quot;color&quot;:true&#125;`</span>)</span><br></pre></td></tr></table></figure></div>
+<h4 id="file">file</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输出到文件</span></span><br><span class="line">logs.SetLogger(logs.AdapterFile, <span class="string">`&#123;&quot;filename&quot;:&quot;beego_project.log&quot;&#125;`</span>)</span><br></pre></td></tr></table></figure></div>
+<h4 id="multifile">multifile</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 多文件日志写入，对号入座写入，比如test.error.log,err.debug.log</span></span><br><span class="line">logs.SetLogger(logs.AdapterMultiFile, <span class="string">`&#123;&quot;filename&quot;:&quot;beego_project.log&quot;,&quot;separate&quot;:[&quot;emergency&quot;, &quot;alert&quot;, &quot;critical&quot;, &quot;error&quot;, &quot;warning&quot;, &quot;notice&quot;, &quot;info&quot;, &quot;debug&quot;]&#125;`</span>)</span><br></pre></td></tr></table></figure></div>
+<h4 id="smtp">smtp</h4>
+<div class="highlight-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 邮件发送</span></span><br><span class="line">logs.SetLogger(logs.AdapterMail,<span class="string">`&#123;&quot;username&quot;:&quot;xxx@qq.com&quot;,&quot;password&quot;:&quot;认证密码&quot;,&quot;host&quot;:&quot;smtp.qq.com:587&quot;,&quot;fromAddress&quot;:&quot;xxx@qq.com&quot;,&quot;sendTos&quot;:[&quot;xxx@qq.com&quot;]&#125;`</span>)</span><br></pre></td></tr></table></figure></div>
+<h2 id="七、实战">七、实战</h2>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：Beego 框架</li>
+        <li>Post author：Lubo</li>
+        <li>Create time：2021-07-14 00:00:00</li>
+        <li>
+            Post link：https://coderlubo.github.io/posts/46439/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Go/">#Go</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Beego/">#Beego</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/posts/35593/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">密码学</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/posts/197/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">go语言</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">Beego 框架</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">Beego 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text">2021年7月14日-2021年8月7日</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-text">一、基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows%E4%B8%8B%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE"><span class="nav-text">Windows下的环境变量设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux%E4%B8%8B%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE"><span class="nav-text">Linux下的环境变量配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-mod"><span class="nav-text">初始化 mod</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E9%A1%B9%E7%9B%AE"><span class="nav-text">运行项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="nav-text">模板文件路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E8%B7%AF%E5%BE%84%EF%BC%9A%E9%A1%B9%E7%9B%AE%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84views%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">默认路径：项目根目录下的views文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="nav-text">静态文件路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E8%B7%AF%E5%BE%84%EF%BC%9A%E9%A1%B9%E7%9B%AE%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84static%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">默认路径：项目根目录下的static文件夹</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92"><span class="nav-text">二、前后端数据交互</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%B8%B2%E6%9F%93"><span class="nav-text">数据渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%B8%B2%E6%9F%93"><span class="nav-text">字符串渲染</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E6%B8%B2%E6%9F%93"><span class="nav-text">模板渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E6%8D%AE%E6%B8%B2%E6%9F%93"><span class="nav-text">结构体数据渲染</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E6%95%B0%E6%8D%AE%E6%B8%B2%E6%9F%93"><span class="nav-text">数组数据渲染</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E7%BB%84%E6%B8%B2%E6%9F%93"><span class="nav-text">结构体数组渲染</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#map%E6%95%B0%E6%8D%AE%E6%B8%B2%E6%9F%93"><span class="nav-text">map数据渲染</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#map-struct%E6%95%B0%E6%8D%AE%E6%B8%B2%E6%9F%93"><span class="nav-text">map+struct数据渲染</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%87%E7%89%87%E6%B8%B2%E6%9F%93"><span class="nav-text">切片渲染</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE"><span class="nav-text">获取请求数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96url%E4%B8%8A%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-text">获取url上的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E8%AF%B7%E6%B1%82%E4%BF%A1%E6%81%AF"><span class="nav-text">获取请求信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96form%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE"><span class="nav-text">获取form表单数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#form%E8%A1%A8%E5%8D%95%E8%A7%A3%E6%9E%90%E5%88%B0%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-text">form表单解析到结构体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ajax%E6%8F%90%E4%BA%A4"><span class="nav-text">ajax提交</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="nav-text">文件上传</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#form%E6%96%B9%E5%BC%8F%E4%B8%8A%E4%BC%A0"><span class="nav-text">form方式上传</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ajax%E6%96%B9%E5%BC%8F%E4%B8%8A%E4%BC%A0"><span class="nav-text">ajax方式上传</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%A7%8D%E6%A0%BC%E5%BC%8F%E6%95%B0%E6%8D%AE%E8%BE%93%E5%87%BA"><span class="nav-text">多种格式数据输出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%EF%BC%9A%E5%81%87%E5%A6%82%E5%89%8D%E7%AB%AF%E6%88%96%E8%80%85%E6%8F%90%E4%BE%9B%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%BF%85%E9%A1%BB%E4%BB%A5%E6%8C%87%E5%AE%9A%E7%9A%84%E6%A0%BC%E5%BC%8F%E4%BC%A0%E8%BE%93"><span class="nav-text">背景：假如前端或者提供的接口必须以指定的格式传输</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#json%E6%A0%BC%E5%BC%8F"><span class="nav-text">json格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xml%E6%A0%BC%E5%BC%8F"><span class="nav-text">xml格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jsonp%E6%A0%BC%E5%BC%8F"><span class="nav-text">jsonp格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#yaml%E6%A0%BC%E5%BC%8F"><span class="nav-text">yaml格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#yaml%E6%A0%BC%E5%BC%8F-2"><span class="nav-text">yaml格式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81view%E6%A8%A1%E5%9D%97"><span class="nav-text">三、view模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95"><span class="nav-text">常用模板语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95"><span class="nav-text">其他常用模板语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF%E5%87%BD%E6%95%B0"><span class="nav-text">常用模板函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#and"><span class="nav-text">and</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#or"><span class="nav-text">or</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#index"><span class="nav-text">index</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF"><span class="nav-text">后端</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF"><span class="nav-text">前端</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#len"><span class="nav-text">len</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#not"><span class="nav-text">not</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#eq-ne-lt-le-gt-ge"><span class="nav-text">eq &#x2F; ne &#x2F; lt &#x2F; le &#x2F; gt &#x2F; ge</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF-2"><span class="nav-text">后端</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF-2"><span class="nav-text">前端</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E6%A8%A1%E6%9D%BF%E5%87%BD%E6%95%B0"><span class="nav-text">内置模板函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#date-%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%97%B6%E9%97%B4"><span class="nav-text">date 格式化时间</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF-3"><span class="nav-text">后端</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF-3"><span class="nav-text">前端</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#compare-%E6%AF%94%E8%BE%83"><span class="nav-text">compare 比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#substr-%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">substr 截取字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map-get-%E8%8E%B7%E5%8F%96map%E7%9A%84%E6%8C%87%E5%AE%9Akey%E5%80%BC"><span class="nav-text">map_get 获取map的指定key值</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF-4"><span class="nav-text">后端</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF-4"><span class="nav-text">前端</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#url-for"><span class="nav-text">url_for</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E6%9D%BF%E5%87%BD%E6%95%B0"><span class="nav-text">自定义模板函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%E3%80%81%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="nav-text">第一步、定义函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E3%80%81AddFuncMap"><span class="nav-text">第二步、AddFuncMap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%E3%80%81%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8"><span class="nav-text">第三步、前端使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81controller%E6%A8%A1%E5%9D%97"><span class="nav-text">四、controller模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">配置文件的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E9%85%8D%E7%BD%AE"><span class="nav-text">读取配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E5%85%A5%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">引入其他配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-text">常用的配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1"><span class="nav-text">路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BA%E5%AE%9A%E8%B7%AF%E7%94%B1"><span class="nav-text">固定路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%B7%AF%E7%94%B1"><span class="nav-text">正则路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%B7%AF%E7%94%B1"><span class="nav-text">自动路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E8%B7%AF%E7%94%B1%E7%9A%84%E6%97%B6%E5%80%99%E4%B8%8D%E9%9C%80%E8%A6%81%E6%8C%87%E5%AE%9Aurl%EF%BC%8C%E5%8F%AA%E9%9C%80%E8%A6%81%E6%B3%A8%E5%86%8C%E6%8E%A7%E5%88%B6%E5%99%A8%E5%8D%B3%E5%8F%AF"><span class="nav-text">注册路由的时候不需要指定url，只需要注册控制器即可</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B7%AF%E7%94%B1"><span class="nav-text">自定义路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E8%B7%AF%E7%94%B1%E7%9A%84%E6%97%B6%E5%80%99%E5%8F%AF%E4%BB%A5%E6%8C%87%E5%AE%9A%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%82%E6%95%B0%EF%BC%8C%E8%BF%99%E4%B8%AA%E5%8F%82%E6%95%B0%E5%B0%B1%E6%98%AF%E7%94%A8%E6%9D%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B7%AF%E7%94%B1%E7%9A%84"><span class="nav-text">注册路由的时候可以指定第三个参数，这个参数就是用来自定义路由的</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-text">自定义过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E6%96%B9%E6%B3%95"><span class="nav-text">过滤器方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#font-color-red-%E6%B3%A8%E6%84%8F%EF%BC%9A-font-%E4%BD%BF%E7%94%A8-session-%E7%9A%84-Filter-%E5%BF%85%E9%A1%BB%E5%9C%A8-BeforeStatic-%E4%B9%8B%E5%90%8E%E6%89%8D%E8%83%BD%E8%8E%B7%E5%8F%96%EF%BC%8C%E5%9B%A0%E4%B8%BA-session-%E6%B2%A1%E6%9C%89%E5%9C%A8%E8%BF%99%E4%B9%8B%E5%89%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E3%80%82"><span class="nav-text">注意：使用 session 的 Filter 必须在 BeforeStatic 之后才能获取，因为 session 没有在这之前初始化。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E8%AE%BE%E7%BD%AE"><span class="nav-text">路由设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA"><span class="nav-text">代码演示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81"><span class="nav-text">表单验证</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-go-mod-%E6%80%8E%E6%A0%B7%E5%AE%89%E8%A3%85"><span class="nav-text">使用 go mod 怎样安装</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E5%AE%9A%E4%B9%89tag"><span class="nav-text">结构体定义tag</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF-5"><span class="nav-text">前端</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF-5"><span class="nav-text">后端</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session-%E5%92%8C-cookie"><span class="nav-text">session 和 cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#session"><span class="nav-text">session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie"><span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#session-%E5%92%8C-cookie-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">session 和 cookie 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#beego%E4%B8%AD%E4%BD%BF%E7%94%A8session"><span class="nav-text">beego中使用session</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%80%E5%90%AFsession"><span class="nav-text">开启session</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8session"><span class="nav-text">使用session</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Esession%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="nav-text">关于session的一些其他配置</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81model%E6%A8%A1%E5%9D%97"><span class="nav-text">五、model模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orm%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">orm的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#beego%E4%B8%AD%E4%BD%BF%E7%94%A8"><span class="nav-text">beego中使用</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E5%88%9B%E5%BB%BA%E5%A5%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8%EF%BC%8C%E8%A1%A8%E5%AF%B9%E5%BA%94%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-text">首先创建好数据库和表，表对应结构体中的属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#mysql-conf%E9%93%BE%E6%8E%A5%E4%BF%A1%E6%81%AF%E9%85%8D%E7%BD%AE%EF%BC%9A"><span class="nav-text">mysql.conf链接信息配置：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#main-go%E4%B8%AD%E5%88%9D%E5%A7%8B%E5%8C%96%E9%93%BE%E6%8E%A5"><span class="nav-text">main.go中初始化链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-text">模型结构体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E6%95%B0%E6%8D%AE"><span class="nav-text">增加数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="nav-text">模型定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2%E5%92%8C%E8%87%AA%E5%8A%A8%E5%BB%BA%E8%A1%A8"><span class="nav-text">用作数据库数据转换和自动建表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%90%8D%E5%92%8C%E8%A1%A8%E5%90%8D%E6%98%A0%E5%B0%84"><span class="nav-text">模型名和表名映射</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E5%90%8D%E5%92%8C%E8%A1%A8%E5%90%8D%E7%9A%84%E6%98%A0%E5%B0%84%E8%A7%84%E5%88%99"><span class="nav-text">模型名和表名的映射规则</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E5%90%8D"><span class="nav-text">自定义表名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link"><span class="nav-text"></span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0%EF%BC%9A%E4%BD%BF%E7%94%A8structtag"><span class="nav-text">设置参数：使用structtag</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E5%85%B3%E7%B3%BB"><span class="nav-text">表关系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E5%AF%B9%E4%B8%80"><span class="nav-text">一对一</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E5%AF%B9%E5%A4%9A"><span class="nav-text">一对多</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E5%AF%B9%E5%A4%9A"><span class="nav-text">多对多</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exper%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">exper表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%89%8D%E6%8F%90%EF%BC%9A%E6%B3%A8%E5%86%8C%E6%A8%A1%E5%9E%8B%EF%BC%9ARegisterModel"><span class="nav-text">前提：注册模型：RegisterModel</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8QueryTable"><span class="nav-text">使用QueryTable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#exper%E8%A1%A8%E8%BE%BE%E5%BC%8F-2"><span class="nav-text">exper表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E4%B8%8B%E5%88%92%E7%BA%BF"><span class="nav-text">两个下划线</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Borm%E6%89%A7%E8%A1%8C%E7%9A%84sql%E8%AF%AD%E5%8F%A5"><span class="nav-text">查看orm执行的sql语句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QueryTable%E6%8E%A5%E5%8F%A3"><span class="nav-text">QueryTable接口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#One"><span class="nav-text">One</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E4%B8%80%E6%9D%A1%E8%AE%B0%E5%BD%95"><span class="nav-text">查询一条记录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Filter"><span class="nav-text">Filter</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8C%85%E5%90%AB%E6%9D%A1%E4%BB%B6"><span class="nav-text">包含条件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#All"><span class="nav-text">All</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E8%AE%B0%E5%BD%95"><span class="nav-text">查询所有记录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Exclude"><span class="nav-text">Exclude</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%92%E9%99%A4%E6%9D%A1%E4%BB%B6"><span class="nav-text">排除条件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Limit"><span class="nav-text">Limit</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%99%90%E5%88%B6%E8%BF%94%E5%9B%9E%E8%AE%B0%E5%BD%95%E7%9A%84%E6%9C%80%E5%A4%A7%E8%A1%8C%E6%95%B0"><span class="nav-text">限制返回记录的最大行数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Offset"><span class="nav-text">Offset</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%81%8F%E7%A7%BB%E8%A1%8C%E6%95%B0"><span class="nav-text">设置偏移行数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#GroupBy"><span class="nav-text">GroupBy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E2%80%9CBy%E2%80%9D%E6%8C%87%E5%AE%9A%E7%9A%84%E8%A7%84%E5%88%99%E5%AF%B9%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%88%86%E7%BB%84"><span class="nav-text">根据“By”指定的规则对数据进行分组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#OrderBy"><span class="nav-text">OrderBy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-text">排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Distinct"><span class="nav-text">Distinct</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8E%BB%E9%87%8D"><span class="nav-text">去重</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Count"><span class="nav-text">Count</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E4%B8%AA%E6%95%B0"><span class="nav-text">统计个数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Exist"><span class="nav-text">Exist</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E6%80%A7%E5%88%A4%E6%96%AD"><span class="nav-text">存在性判断</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Update"><span class="nav-text">Update</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0"><span class="nav-text">更新</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Delete"><span class="nav-text">Delete</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-text">删除</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#insert-%E4%B8%8D%E6%98%AFQueryTable%E6%8E%A5%E5%8F%A3"><span class="nav-text">insert &#x3D;&#x3D;不是QueryTable接口&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8F%92%E5%85%A5"><span class="nav-text">插入</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%BB%BA%E8%A1%A8"><span class="nav-text">自动建表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E6%8F%90"><span class="nav-text">前提</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%95%E4%B8%80"><span class="nav-text">法一</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#syncdb%E5%8F%82%E6%95%B0%EF%BC%9A"><span class="nav-text">syncdb参数：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%95%E4%BA%8C"><span class="nav-text">法二</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%97%A5%E5%BF%97%E6%A8%A1%E5%9D%97"><span class="nav-text">六、日志模块</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%8C%85"><span class="nav-text">下载包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8"><span class="nav-text">代码使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB"><span class="nav-text">日志级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E6%93%8E"><span class="nav-text">引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#console"><span class="nav-text">console</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#file"><span class="nav-text">file</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#multifile"><span class="nav-text">multifile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#smtp"><span class="nav-text">smtp</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%AE%9E%E6%88%98"><span class="nav-text">七、实战</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2023</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-regular fa-computer-classic"></i>&nbsp;&nbsp;<a href="/">Lubo</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        VISITOR COUNT&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        TOTAL PAGE VIEWS&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <br> 
+            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v1.1.3</a>
+        </div>
+        
+        
+        
+            <div id="start_time_div" style="display:none">
+                2023/2/28 00:00:00
+            </div>
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="unfolded-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="fa-regular fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="folded-tools-list">
+        <li class="right-bottom-tools tool-toggle-show flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+</main>
+
+
+
+<script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/utils.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/main.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/layouts/menu-shrink.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/tools/go-top-bottom.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/tools/dark-light-toggle.js"></script>
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/tools/local-search.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/tools/code-block.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/layouts/lazyload.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/tools/runtime.js"></script>
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/layouts/odometer.min.js"></script>
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/assets/odometer-theme-minimal.css">
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/tools/toc-toggle.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/libs/anime.min.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/layouts/toc.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/plugins/tabs.js"></script>
+    
+    
+</div>
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.1.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            REDEFINE.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            REDEFINE.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            REDEFINE.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
